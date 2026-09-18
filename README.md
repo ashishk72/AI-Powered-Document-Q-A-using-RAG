@@ -71,7 +71,7 @@ rag-document-qa/
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ### Step 1 — Clone the repository
 ```bash
@@ -101,7 +101,7 @@ The app will automatically open at `http://localhost:8501`
 
 ---
 
-## 💡 How to Use
+##  How to Use
 
 1. Click **Browse files** and upload one or more PDF documents
 2. Wait for the system to process and index the documents
@@ -111,7 +111,7 @@ The app will automatically open at `http://localhost:8501`
 
 ---
 
-## 🧪 Example Questions to Try
+##  Example Questions to Try
 
 Using the included demo PDFs:
 
@@ -124,7 +124,7 @@ Using the included demo PDFs:
 
 ---
 
-## 🔍 How RAG Works — Simple Explanation
+##  How RAG Works — Simple Explanation
 
 Traditional language models answer from memory (training data). RAG is different:
 
@@ -136,7 +136,7 @@ This means the model answers from your actual documents — reducing hallucinati
 
 ---
 
-## 📊 Key Technical Decisions
+##  Key Technical Decisions
 
 **Why all-MiniLM-L6-v2?**
 Lightweight (80MB), fast inference, strong semantic similarity performance. Ideal for local deployment without GPU.
@@ -155,7 +155,7 @@ flan-t5-base is a sequence-to-sequence model designed for text2text-generation t
 
 ---
 
-## 🚀 Possible Improvements
+##  Possible Improvements
 
 - [ ] Persist FAISS index to disk to avoid re-indexing on every run
 - [ ] Upgrade LLM to `flan-t5-large` or API-based model for better answer quality
@@ -165,7 +165,7 @@ flan-t5-base is a sequence-to-sequence model designed for text2text-generation t
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Ashish Kumar**
 M.Tech, Computer Science and Engineering
