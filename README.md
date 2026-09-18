@@ -1,75 +1,43 @@
-# 📄 RAG Document Question Answering System
+# AI-Powered Document Q&A using RAG
 
-A production-ready **Retrieval-Augmented Generation (RAG)** application that allows users to upload multiple PDF documents and ask natural language questions. The system intelligently retrieves relevant context and generates accurate, grounded answers using a HuggingFace language model.
+An AI-powered document question-answering system that allows users to ask questions about the content of PDF documents. The system uses Retrieval-Augmented Generation (RAG) to retrieve relevant information from documents and generate context-aware answers using a Large Language Model (LLM).
 
+##  Features
 
+- Upload and process multiple PDF documents
+- Extract text from PDF files
+- Split documents into smaller chunks for efficient retrieval
+- Generate vector embeddings for document chunks
+- Store and search embeddings using FAISS
+- Retrieve relevant document content based on user queries
+- Generate context-aware answers using an LLM
+- Conversational question answering
+- Source-based responses to improve answer grounding
 
----
+##  Architecture
 
-## 🎯 Problem Statement
+The system follows a Retrieval-Augmented Generation pipeline:
 
-Reading through large PDF documents to find specific information is slow and inefficient. This system lets you upload any PDF — a textbook, research paper, medical document, or legal contract — and ask questions in plain English. The system finds the relevant context and answers instantly.
-
----
-
-## 🏗 RAG Pipeline Architecture
-
-```
-User uploads PDF(s)
-        │
-        ▼
-┌──────────────────────┐
-│    PyPDFLoader       │  ← Loads each PDF page by page
-└──────────────────────┘
-        │
-        ▼
-┌──────────────────────────────────┐
-│  RecursiveCharacterTextSplitter  │  ← Splits text into 500-char chunks
-│  chunk_size=500, overlap=100     │     overlap=100 preserves boundary context
-└──────────────────────────────────┘
-        │
-        ▼
-┌──────────────────────────────────┐
-│    HuggingFaceEmbeddings         │  ← Converts chunks to 384-dim vectors
-│    all-MiniLM-L6-v2              │     using sentence-transformers
-└──────────────────────────────────┘
-        │
-        ▼
-┌──────────────────────────────────┐
-│    FAISS Vector Store            │  ← Stores all embeddings for
-│    Approximate Nearest Neighbour │     fast similarity search
-└──────────────────────────────────┘
-        │
-   User asks question
-        │
-        ▼
-┌──────────────────────────────────┐
-│    Retriever (k=3)               │  ← Finds top 3 most relevant
-│    Semantic Similarity Search    │     chunks for the question
-└──────────────────────────────────┘
-        │
-        ▼
-┌──────────────────────────────────┐
-│    google/flan-t5-base           │  ← Generates natural language
-│    RetrievalQA Chain             │     answer from retrieved context
-└──────────────────────────────────┘
-        │
-        ▼
-   Answer + Source Chunks displayed to user
-```
-
----
-
-## ✨ Features
-
-- 📁 Upload multiple PDF files simultaneously
-- 🔍 Semantic search — finds meaning, not just keywords
-- 🤖 AI-generated natural language answers
-- 📌 Shows source document chunks used to generate answer
-- ⚡ Fast retrieval using FAISS vector similarity search
-- 🖥 Clean interactive web interface built with Streamlit
-
----
+```text
+PDF Documents
+      ↓
+Document Loading
+      ↓
+Text Extraction
+      ↓
+Document Chunking
+      ↓
+Text Embeddings
+      ↓
+FAISS Vector Database
+      ↓
+Semantic Retrieval
+      ↓
+Relevant Context
+      ↓
+LLM + Prompt
+      ↓
+Generated Answer
 
 ## 🛠 Tech Stack
 
@@ -85,8 +53,8 @@ User uploads PDF(s)
 | Language | Python 3.10+ |
 
 ---
-
-## 📂 Project Structure
+```
+##  Project Structure
 
 ```
 rag-document-qa/
@@ -107,7 +75,7 @@ rag-document-qa/
 
 ### Step 1 — Clone the repository
 ```bash
-git clone 
+git clone https://github.com/ashishk72/AI-Powered-Document-Q-A-using-RAG
 cd rag-document-qa
 ```
 
@@ -199,16 +167,14 @@ flan-t5-base is a sequence-to-sequence model designed for text2text-generation t
 
 ## 👨‍💻 Author
 
-**Pruthvi Shivanand Shegavi**
-Data Science Intern @ Global Quest Technologies, Bengaluru
-B.E Computer Science — Government Engineering College Majali, Karwar (2026)
+**Ashish Kumar**
+M.Tech, Computer Science and Engineering
+National Institute of Technology, Rourkela
 
-- LinkedIn: [linkedin.com/in/pruthvi-s-shegavi-73612a379](https://www.linkedin.com/in/pruthvi-s-shegavi-73612a379)
-- GitHub: [github.com/Pruthviss](https://github.com/Pruthviss)
-- Email: pruthvishegavi07@gmail.com
+- LinkedIn: [linkedin.com/in/ashish-kumar-061289227](https://www.linkedin.com/in/ashish-kumar-061289227)
+- GitHub: [github.com/ashishk72](https://https://github.com/ashishk72)
+- Email: ashishk07376@gmail.com
 
 ---
 
-## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
